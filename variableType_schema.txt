@@ -1,0 +1,10 @@
+CREATE TABLE `variableType` (
+  `sn` smallint unsigned NOT NULL AUTO_INCREMENT COMMENT '資料代碼',
+  `type_name` varchar(64) NOT NULL COMMENT '資料名稱',
+  `data_type_id` smallint unsigned NOT NULL COMMENT '資料分項類別',
+  `description` text COMMENT '資料描述',
+  `variable_unit` varchar(16) DEFAULT NULL COMMENT '資料單位',
+  PRIMARY KEY (`sn`),
+  KEY `fk_dataType_idx` (`data_type_id`),
+  CONSTRAINT `fk_dataType` FOREIGN KEY (`data_type_id`) REFERENCES `dataType` (`sn`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='資料類別';
